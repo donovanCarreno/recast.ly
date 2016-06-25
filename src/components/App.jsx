@@ -11,6 +11,8 @@ class App extends React.Component {
     this.setState({videoPlayer: thing});
   }
 
+
+
   callback(data) {
     this.setState({
       videoPlayer: data[0],
@@ -21,19 +23,19 @@ class App extends React.Component {
   search(options, callback) {
     this.props.searchYT(options, callback);
   }
-   
+
+  handleSearch(e) {
+    console.log(e.target.value);
+    var options = {};
+    options.query = e.target.value;
+    var boundSearch = this.search.bind(this);
+    boundSearch(options, this.callback.bind(this));
+  } 
 
   render() {
-    this.search({}, function(data) {
-      app.setState({
-        videoPlayer: data[0],
-        videoList: data
-      });
-    });
-
     return (
       <div>
-        <Nav />
+        <Nav onSearch={this.handleSearch.bind(this)}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.videoPlayer}/>
         </div>

@@ -68,7 +68,7 @@ describe('searchYouTube', function() {
   // though it will not necessarily have the same values.
   it('should GET videos with the same shape as `exampleVideoData`', function(done) {
     var options = {
-      key: 'AIzaSyCBjD_WSAkckvfefqOoTyW1pDWK7urpGt8',
+      key: window.API_KEY,
       query: 'react',
       max: 5
     };
