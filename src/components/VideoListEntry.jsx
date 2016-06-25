@@ -1,13 +1,8 @@
 var VideoListEntry = function(props) {
-  this.onListItemClick = function() {
-    window.app.setState({
-      videoPlayer: props.video
-    });
-  };
 
 
   return (
-    <div className="video-list-entry" onClick={this.onListItemClick.bind(this)}>
+    <div className="video-list-entry" onClick={function() { props.clickHandler(props.video); } }>
       <div className="media-left media-middle">
         <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
       

@@ -8,8 +8,7 @@
   "scripts": {
     "test": "live-server --open=./SpecRunner.html --port=8081",
     "postinstall": "curl -s https://raw.githubusercontent.com/hackreactor-labs/pomander/master/bin/install | bash",
-    "babel": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline",
-    "watch": "nodemon --watch src/ --ignore compiled/ -e js,jsx -x\"npm run babel\""
+    "babel": "babel . --watch --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline",
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",

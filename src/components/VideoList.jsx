@@ -1,7 +1,8 @@
 var VideoList = function(props) {
+
   return (
     <div className="video-list media">
-      {props.videos.map( (video, ind) => <VideoListEntry video={video} key={ind}/>)}
+      {props.videos.map( (video, ind) => <VideoListEntry video={video} key={ind} clickHandler={props.onSelect}/>)}
       
     </div>
   );
