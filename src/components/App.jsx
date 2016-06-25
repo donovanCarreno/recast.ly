@@ -10,9 +10,27 @@ class App extends React.Component {
   clickHandler(thing) {
     this.setState({videoPlayer: thing});
   }
+
+  callback(data) {
+    this.setState({
+      videoPlayer: data[0],
+      videoList: data
+    });
+  }
+
+  search(options, callback) {
+    this.props.searchYT(options, callback);
+  }
    
 
   render() {
+    this.search({}, function(data) {
+      app.setState({
+        videoPlayer: data[0],
+        videoList: data
+      });
+    });
+
     return (
       <div>
         <Nav />
